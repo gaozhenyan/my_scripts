@@ -1,0 +1,13 @@
+#!/bin/sh
+
+OS_TYPE=`uname -s`
+
+files=`find $* -name "*.[ch]" -o -name "*.[sS]"`
+
+if [ "$OS_TYPE"="Linux" ];then
+    cscope -b $files
+    ctags $files
+elif [ "$OS_TYPE"="Darwin" ];then
+    cscope -b $files
+    ctags -B -d -t $files
+fi
