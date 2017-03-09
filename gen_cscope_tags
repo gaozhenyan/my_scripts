@@ -2,7 +2,7 @@
 
 OS_TYPE=`uname -s`
 
-files=`find $* -name "*.[ch]" -o -name "*.[sS]"`
+files=`find $* -name "*.[ch]" -o -name "*.[sS] -o -name "*.cc" -o -name "*.cpp" -o -name "*.hpp""`
 
 if [ "$OS_TYPE"="Linux" ];then
     cscope -b $files
